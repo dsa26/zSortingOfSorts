@@ -11,6 +11,10 @@ public class Sort {
         return quick(this.arr);
     }
 
+    public int[] selection() {
+        return selection(this.arr);
+    }
+
     public static int[] quick(int[] arr) {
         if (arr.length == 2) {
             if (arr[0] > arr[1]) {
@@ -42,5 +46,38 @@ public class Sort {
             arr[sorted1.length + i + 1] = sorted2[i];
         }
         return arr;
+    }
+
+    public static int[] selection(int[] arr) {
+        int breakPoint = 0;
+        while (breakPoint < arr.length) {
+            swap(arr, smallestIndex(arr, breakPoint), breakPoint);
+            breakPoint++;
+        }
+        return arr;
+    }
+
+    private static int smallestIndex(int[] arr, int startIndex) {
+        int smallest = startIndex;
+        for (int i = startIndex + 1; i < arr.length; i++) {
+            if (arr[i] < arr[smallest])
+                smallest = i;
+        }
+        return smallest;
+    }
+
+    private static int smallestIndex(int[] arr) {
+        int smallest = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[smallest])
+                smallest = i;
+        }
+        return smallest;
+    }
+
+    private static void swap(int[] arr, int i1, int i2) {
+        int temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
     }
 }
