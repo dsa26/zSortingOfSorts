@@ -15,6 +15,10 @@ public class Sort {
         return selection(this.arr);
     }
 
+    public int[] insertion() {
+        return insertion(this.arr);
+    }
+
     public static int[] quick(int[] arr) {
         if (arr.length == 2) {
             if (arr[0] > arr[1]) {
@@ -53,6 +57,18 @@ public class Sort {
         while (breakPoint < arr.length) {
             swap(arr, smallestIndex(arr, breakPoint), breakPoint);
             breakPoint++;
+        }
+        return arr;
+    }
+
+    public static int[] insertion(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int current = arr[i];
+            int index = i;
+            while (index > 0 && current < arr[index - 1]) {
+                arr[index] = arr[index - 1];
+                index--;
+            }
         }
         return arr;
     }
