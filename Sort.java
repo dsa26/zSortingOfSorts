@@ -28,8 +28,9 @@ public class Sort {
     }
 
     public int[] merge(int[] arr) {
-        if (arr.length < 2) return arr;
-        int middle = list.length / 2;
+        if (arr.length < 2)
+            return arr;
+        int middle = arr.length / 2;
         int[] left = Arrays.copyOfRange(arr, 0, middle);
         int[] right = Arrays.copyOfRange(arr, middle, arr.length);
         merge(left);
@@ -38,7 +39,7 @@ public class Sort {
         return arr;
     }
 
-    public int[] merge(int[] arr, int[] left, int[] middle, int[] right) {
+    public int[] merge(int[] arr, int[] left, int[] right) {
         int a = 0;
         int b = 0;
         int c = 0;
