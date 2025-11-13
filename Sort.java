@@ -27,7 +27,18 @@ public class Sort {
         return merge(this.arr);
     }
 
-    public void merge(int[] arr, int[] left, int[] middle, int[] right) {
+    public int[] merge(int[] arr) {
+        if (arr.length < 2) return arr;
+        int middle = list.length / 2;
+        int[] left = Arrays.copyOfRange(arr, 0, middle);
+        int[] right = Arrays.copyOfRange(arr, middle, arr.length);
+        merge(left);
+        merge(right);
+        merge(arr, left, right);
+        return arr;
+    }
+
+    public int[] merge(int[] arr, int[] left, int[] middle, int[] right) {
         int a = 0;
         int b = 0;
         int c = 0;
@@ -55,6 +66,8 @@ public class Sort {
             c++;
             b++;
         }
+
+        return arr;
     }
 
     public static int[] inPlaceQuick(int[] arr) {
