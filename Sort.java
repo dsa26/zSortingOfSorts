@@ -27,7 +27,7 @@ public class Sort {
         return merge(this.arr);
     }
 
-    public int[] merge(int[] arr) {
+    public static int[] merge(int[] arr) {
         if (arr.length < 2)
             return arr;
         int middle = arr.length / 2;
@@ -39,7 +39,7 @@ public class Sort {
         return arr;
     }
 
-    public int[] merge(int[] arr, int[] left, int[] right) {
+    public static int[] merge(int[] arr, int[] left, int[] right) {
         int a = 0;
         int b = 0;
         int c = 0;
