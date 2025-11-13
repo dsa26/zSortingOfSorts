@@ -11,12 +11,51 @@ public class Sort {
         return quick(this.arr);
     }
 
+    public int[] inPlaceQuick() {
+        return inPlaceQuick(this.arr);
+    }
+
     public int[] selection() {
         return selection(this.arr);
     }
 
     public int[] insertion() {
         return insertion(this.arr);
+    }
+
+    public static int[] inPlaceQuick(int[] arr) {
+        return inPlaceQuick(arr, 0, arr.length);
+    }
+
+    public static int[] inPlaceQuick(int[] arr, int start, int end) {
+        if ((end - start) == 2) {
+            if (arr[start + 0] > arr[start + 1]) {
+                swap(arr, start + 0, start + 1);
+                return arr;
+            } else
+                return arr;
+        } else if ((end - start) < 2)
+            return arr;
+
+        int pivot = arr[start + 0];
+        int pivotIndex = start + 0;
+        for (int i = start + 1; i < end; i++) {
+            if (arr[i] < pivot) {
+                moveToStart(arr, i, start);
+                pivotIndex++;
+            }
+        }
+        inPlaceQuick(arr, 0, pivotIndex);
+        inPlaceQuick(arr, pivotIndex + 1, arr.length);
+        return arr;
+    }
+
+    private static void moveToStart(int[] arr, int index, int start) {
+        int temp = arr[index];
+        for (int i = index; i > start + 0; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[start + 0] = temp;
     }
 
     public static int[] quick(int[] arr) {
