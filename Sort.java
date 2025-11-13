@@ -23,6 +23,40 @@ public class Sort {
         return insertion(this.arr);
     }
 
+    public int[] merge() {
+        return merge(this.arr);
+    }
+
+    public void merge(int[] arr, int[] left, int[] middle, int[] right) {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+
+        while (a < left.length && b < right.length) {
+            if (left[a] <= right[b]) {
+                arr[c] = left[a];
+                c++;
+                a++;
+            } else {
+                arr[c] = right[b];
+                c++;
+                b++;
+            }
+        }
+
+        while (a < left.length) {
+            arr[c] = left[a];
+            c++;
+            a++;
+        }
+
+        while (b < right.length) {
+            arr[c] = right[b];
+            c++;
+            b++;
+        }
+    }
+
     public static int[] inPlaceQuick(int[] arr) {
         return inPlaceQuick(arr, 0, arr.length);
     }
