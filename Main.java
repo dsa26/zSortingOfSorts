@@ -7,9 +7,9 @@ public class Main {
         // System.out.println(num);
         // }
 
-        String[] names = { "ARNOLD", "GRAY", "MCCLINTOCK", "BUSTAMANTE", "SIMON", "SCHWARZENEGGER", "UECHLI",
-                "COLEMAN" };
-        California.sort(names);
+        String[] names = { "CAT", "BAT", "HAT", "LIGHT", "NIGHT", "DOG", "HOUSE", "APPLE", "MAT", "RAT", "RIGHT",
+                "BELL", "MOUNTAIN", "RIVER", "LOG", "SIGHT", "CELL", "WELL", "FOG", "BOOK" };
+        Rhymer.sort(names);
         for (String name : names) {
             System.out.println(name);
         }
