@@ -93,8 +93,8 @@ public class Sort {
                 pivotIndex++;
             }
         }
-        inPlaceQuick(arr, 0, pivotIndex);
-        inPlaceQuick(arr, pivotIndex + 1, arr.length);
+        inPlaceQuick(arr, start, pivotIndex);
+        inPlaceQuick(arr, pivotIndex + 1, end);
         return arr;
     }
 
